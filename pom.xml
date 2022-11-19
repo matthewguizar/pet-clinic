@@ -15,17 +15,13 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.springframework</groupId>
-	<artifactId>pet-clinic </artifactId>
+	<artifactId>pet-clinic</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>pet-clinic </name>
+	<name>pet-clinic</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
-
-	<dependencies>
-
-	</dependencies>
 
 	<build>
 		<plugins>
@@ -33,7 +29,17 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<configuration>
+					<goal>install</goal>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
+	<scm>
+		<developerConnection>scm:git:https://github.com/matthewguizar/pet-clinic.git</developerConnection>
+	</scm>
 
 </project>
