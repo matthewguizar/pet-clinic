@@ -1,2 +1,9 @@
-package com.springframework.services;public interface VetService {
+package com.springframework.services;
+
+import com.springframework.model.Vet;
+
+
+public interface VetService  extends CrudService<Vet, Long>{
+
+
 }
