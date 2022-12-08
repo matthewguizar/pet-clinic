@@ -3,6 +3,7 @@ package com.springframework.services.springdatajpa;
 import com.springframework.model.PetType;
 import com.springframework.repositories.PetTypeRepository;
 import com.springframework.services.CrudService;
+import com.springframework.services.PetTypeService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,7 @@ import java.util.Set;
 
 @Service
 @Profile("springdatajpa")
-public class PetTypeJpaService implements CrudService<PetType, Long> {
+public class PetTypeJpaService implements PetTypeService {
 
     private final PetTypeRepository petTypeRepository;
 

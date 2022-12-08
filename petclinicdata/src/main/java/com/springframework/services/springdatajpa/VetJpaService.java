@@ -3,6 +3,7 @@ package com.springframework.services.springdatajpa;
 import com.springframework.model.Vet;
 import com.springframework.repositories.VetRepository;
 import com.springframework.services.CrudService;
+import com.springframework.services.VetService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -11,11 +12,11 @@ import java.util.Set;
 
 @Service
 @Profile("springdatajpa")
-public class VetsJpaService implements CrudService<Vet, Long> {
+public class VetJpaService implements VetService {
 
     private final VetRepository vetRepository;
 
-    public VetsJpaService(VetRepository vetRepository) {
+    public VetJpaService(VetRepository vetRepository) {
         this.vetRepository = vetRepository;
     }
 
