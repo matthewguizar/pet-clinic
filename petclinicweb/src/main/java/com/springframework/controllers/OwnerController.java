@@ -26,16 +26,11 @@ public class OwnerController {
         this.ownerService = ownerService;
     }
 
-//    @InitBinder
-//    public void setAllowedFields(WebDataBinder dataBinder){
-//        dataBinder.setDisallowedFields("id");
-//    }
-//    @RequestMapping({"", "/","/index", "/index.html"})
-//    public String listOwners(Model model){
-//
-//        model.addAttribute("owners", ownerService.findAll());
-//        return "owners/index";
-//    }
+    @InitBinder
+    public void setAllowedFields(WebDataBinder dataBinder){
+        dataBinder.setDisallowedFields("id");
+  }
+
 
     @RequestMapping("/find")
     public String findOwners(Model model){
@@ -45,11 +40,12 @@ public class OwnerController {
 
     @GetMapping
     public String processFindForm(Owner owner, BindingResult result, Model model){
+        // allow parameterless GET request for /owners to return all records
             if (owner.getLastName() == null){
-                owner.setLastName("");
+                owner.setLastName(""); //empty string signifies the broadest possible search
             }
-
-            List<Owner> results = ownerService.findAllByLastName((owner.getLastName()));
+            //find owners by last name
+            List<Owner> results = ownerService.findAllByLastNameLike("%"+owner.getLastName()+"%");
 
             if (results.isEmpty()) {
                 result.rejectValue("lastName", "notFound", "not found");
