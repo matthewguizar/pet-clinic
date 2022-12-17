@@ -23,7 +23,7 @@ public class BaseEntity implements Serializable {
     private Long id;
 
 
-    public Boolean isNew(){
+    public boolean isNew(){
         return this.id == null;
     }
 }
